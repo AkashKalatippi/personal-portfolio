@@ -343,94 +343,131 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ education Css ************/
 
+/* ================== EDUCATION GALAXY ================== */
+
 .edu-galaxy {
-  padding: 120px 0;
-  background: radial-gradient(circle at top, #0f172a, #020617 70%);
   position: relative;
+  padding: 100px 0;
+  background: radial-gradient(circle at top, #0b0f2b, #020314);
   overflow: hidden;
 }
 
-/* same title font as Skills */
-.skill-title {
-  text-align: center;
-  font-size: 45px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 80px;
-}
-
-/* Floating stars animation */
-.edu-galaxy::before {
-  content: "";
+/* ===== STAR BACKGROUND ===== */
+.stars,
+.twinkling {
   position: absolute;
   inset: 0;
+}
+
+.stars {
   background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: spaceMove 80s linear infinite;
-  opacity: 0.25;
+  opacity: 0.4;
 }
 
-@keyframes spaceMove {
-  from { background-position: 0 0; }
-  to { background-position: 2000px 2000px; }
+.twinkling {
+  background: url("https://www.transparenttextures.com/patterns/tiny-stars.png");
+  animation: starsMove 200s linear infinite;
+  opacity: 0.3;
 }
 
+@keyframes starsMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+/* ===== TITLE ===== */
+.skill-title {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 80px;
+  letter-spacing: 1px;
+}
+
+/* ===== GRID ===== */
 .edu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-  gap: 35px;
-  z-index: 1;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
   position: relative;
+  z-index: 2;
 }
 
-/* Education Cards */
+/* ===== CARD ===== */
 .edu-card {
-  background: rgba(255,255,255,0.04);
-  padding: 30px 22px;
-  border-radius: 18px;
-  text-align: center;
-  border: 1px solid rgba(0,234,255,0.3);
-  box-shadow: 0 0 20px rgba(0,234,255,0.15);
-  transition: 0.4s ease;
-  animation: floatCard 6s ease-in-out infinite;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid rgba(0, 200, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.08);
+  transition: all 0.4s ease;
 }
 
-.edu-card:nth-child(2){animation-delay:1s;}
-.edu-card:nth-child(3){animation-delay:2s;}
-.edu-card:nth-child(4){animation-delay:3s;}
-
-@keyframes floatCard {
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-15px);}
-}
-
+/* ===== HOVER ===== */
 .edu-card:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 40px rgba(0,234,255,0.9);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.45);
+  border-color: rgba(0, 200, 255, 0.6);
 }
 
-/* Auto-fit long text */
+/* ===== TEXT ===== */
 .edu-card h4 {
-  font-size: 15px;
-  line-height: 1.4;
-  color: #facc15;
-  word-break: break-word;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 10px;
 }
 
 .edu-card h6 {
-  font-size: 14px;
-  color: #e5e7eb;
-  margin: 6px 0;
+  color: #c7d2fe;
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin: 10px 0;
 }
 
-.edu-card span {
-  font-size: 13px;
-  color: #00eaff;
+.edu-year {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #00d9ff;
+  letter-spacing: 1px;
 }
 
-.edu-card p {
-  font-size: 12px;
-  color: #22c55e;
-  margin-top: 6px;
+.edu-status {
+  color: #8be9fd;
+  font-size: 0.85rem;
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .edu-galaxy {
+    padding: 80px 20px;
+  }
+
+  .skill-title {
+    font-size: 2rem;
+  }
 }
 
 
@@ -710,3 +747,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.5px;
   margin-top: 20px;
 }
+
+
+
+
+
+
+
+
